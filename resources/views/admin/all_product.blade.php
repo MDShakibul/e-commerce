@@ -9,6 +9,14 @@
 				<li><a href="#">Tables</a></li>
 			</ul>
 
+			<p class="alert-success">
+			<?php $message = Session::get('message');
+			if($message){
+				echo $message;
+				Session::put('message',null);
+			}
+			?>
+
 			<div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
@@ -27,7 +35,7 @@
 								  <th>Product Image</th>
 								  <th>Product Size</th>
 								  <th>Product Color</th>
-								  <th>Publication Staproduct
+								  <th>publication_status</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead> 

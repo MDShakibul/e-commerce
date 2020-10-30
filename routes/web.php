@@ -8,7 +8,7 @@ Route::get('/', 'HomeController@index');
 //Backend routes
 Route::get('/logout', 'SuperAdminController@logout');
 Route::get('/admin', 'AdminController@index');
-Route::get('/dashboard','AdminController@show_dashboard');
+Route::get('/dashboard','SuperAdminController@index');
 Route::post('/admin-dashboard','AdminController@dashboard');
 
 
@@ -43,6 +43,15 @@ Route::get('/active_product/{product_id}', 'ProductController@active_product');
 Route::get('/delete_product/{product_id}', 'ProductController@delete_product');
 Route::get('/edit_product/{product_id}', 'ProductController@edit_product');
 Route::post('/update_product/{product_id}', 'ProductController@update_product');
+
+
+//slider
+Route::get('/add_slider', 'SliderController@index');
+Route::post('/save_slider', 'SliderController@save_slider');
+Route::get('/all_slider', 'SliderController@all_slider');
+Route::get('/unactive_slider/{slider_id}', 'SliderController@unactive_slider');
+Route::get('/active_slider/{slider_id}', 'SliderController@active_slider');
+Route::get('/delete_slider/{slider_id}', 'SliderController@delete_slider');
 
 
 
