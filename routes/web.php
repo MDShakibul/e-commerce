@@ -4,6 +4,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
+//new category wise product here
+Route::get('/product_by_category/{category_id}', 'HomeController@show_product_by_category');
+//Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@show_product_by_manufacture');
+Route::get('/view_product/{product_id}', 'HomeController@product_details_by_id');
+
+//cart
+Route::post('/add-to-cart','CartController@add_to_cart');
+Route::get('/show-cart','CartController@show_cart');
+Route::get('/delete-from-cart/{id}','CartController@delete_from_cart');
+Route::post('/update-cart','CartController@update_cart');
+
+//checkout
+Route::get('/login-check','CheckoutController@login_check');
+Route::post('/customer_registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
+Route::post('/save-shipping-details','CheckoutController@save_shipping_details');
+Route::post('/customer_login','CheckoutController@customer_login');
+
+
+
+
 
 //Backend routes
 Route::get('/logout', 'SuperAdminController@logout');
