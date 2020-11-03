@@ -51,7 +51,14 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price"><!-- {{Cart::getSubTotal()}} -->Total</p>
+								<p class="cart_total_price">
+								<?php
+
+								$var = $v_contents->price * $v_contents->quantity;
+								echo $var;
+
+								?>
+								</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href="{{URL::to('/delete-from-cart/'.$v_contents->id)}}"><i class="fa fa-times"></i></a>

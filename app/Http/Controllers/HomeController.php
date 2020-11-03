@@ -18,6 +18,8 @@ class HomeController extends Controller
                         ->limit(9)
                         ->get();
 
+                        
+
         $manage_published_product = view('pages.home')
                         ->with('all_published_product',$all_published_product);
         return view('layout')
@@ -41,6 +43,7 @@ return view('layout')
     }
 
     public function show_product_by_manufacture($manufacture_id){
+
         $product_by_manufacture=DB::table('tbl_products')
                              ->join('tbl_category','tbl_products.category_id','=','tbl_category.category_id')
                              ->join('tbl_manufacture','tbl_products.manufacture_id','=','tbl_manufacture.manufacture_id')
@@ -50,10 +53,10 @@ return view('layout')
                              ->limit(18)
                              ->get();
 
-        $manage_product_by_manufacture = view('pages.home')
+        $manage_product_by_manufacture = view('pages.manufacture_by_product')
                      ->with('product_by_manufacture',$product_by_manufacture);
         return view('layout')
-                     ->with('pages.manufacture_by_$product',$manage_product_by_manufacture );
+                     ->with('pages.manufacture_by_product',$manage_product_by_manufacture );
 
 
     }

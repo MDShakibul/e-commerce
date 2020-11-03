@@ -32,7 +32,7 @@
 						@csrf
 							<input type="text" placeholder="Full Name" name="customer_name" required=""/>
 							<input type="email" placeholder="Email Address" name="customer_email" required=""/>
-							<input type="password" placeholder="Password" name="passoword" required=""/>
+							<input type="password" placeholder="Password" name="password" required=""/>
 							<input type="text" placeholder="Mobile Number" name="mobile_number" required=""/>
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>

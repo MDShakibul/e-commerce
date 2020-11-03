@@ -21,6 +21,7 @@ class CheckoutController extends Controller
         $data['customer_email']=$request->customer_email;
         $data['password']=md5($request->password);
         $data['mobile_number']=$request->mobile_number;
+        
 
         $customer_id=DB::table('tbl_customer')
                     ->insertGetId($data);
@@ -61,10 +62,13 @@ class CheckoutController extends Controller
         $customer_email = $request->customer_email;
         $password = md5($request->password);
 
+        
         $result=DB::table('tbl_customer')
-               ->where('customer_email',$customer_email )
+               ->where('customer_email',$customer_email)
                ->where('password',$password)
                ->first();
+
+               
 
             if($result){
                 Session::put('customer_id',$result->customer_id);

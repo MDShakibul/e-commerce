@@ -6,7 +6,7 @@ Route::get('/', 'HomeController@index');
 
 //new category wise product here
 Route::get('/product_by_category/{category_id}', 'HomeController@show_product_by_category');
-//Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@show_product_by_manufacture');
+Route::get('/product_by_manufacture/{manufacture_id}', 'HomeController@show_product_by_manufacture');
 Route::get('/view_product/{product_id}', 'HomeController@product_details_by_id');
 
 //cart
