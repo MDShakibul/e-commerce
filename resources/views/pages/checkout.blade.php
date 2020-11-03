@@ -19,13 +19,13 @@
                             
 								<form action="{{url('/save-shipping-details')}}" method="POST">
                                 @csrf
-                                    <input type="text" name="shipping_email" placeholder="Email*">
-									<input type="text" name="shipping_first_name" placeholder="First Name *">
-									<input type="text" name="shipping_last_name" placeholder="Last Name *">
-									<input type="text" name="shipping_address" placeholder="Address *">
-									<input type="text" name="shipping_mobile_number" placeholder="Mobile Number">
-                                    <input type="text" name="shipping_city" placeholder="city *">
-                                    <input type="submit" class="btn btn-default" value="Done">
+                                    <input type="text" name="shipping_email" placeholder="Email*" required="">
+									<input type="text" name="shipping_first_name" placeholder="First Name *" required="">
+									<input type="text" name="shipping_last_name" placeholder="Last Name *" required="">
+									<input type="text" name="shipping_address" placeholder="Address *" required="">
+									<input type="text" name="shipping_mobile_number" placeholder="Mobile Number" required="">
+                                    <input type="text" name="shipping_city" placeholder="city *" required="">
+                                    <input type="submit" class="btn btn-default" value="Done" required="">
 								</form>
 							</div>
 							

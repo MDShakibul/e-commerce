@@ -21,6 +21,7 @@
 						</form>
 					</div><!--/login form-->
 				</div>
+				
 				<div class="col-sm-1">
 					<h2 class="or">OR</h2>
 				</div>

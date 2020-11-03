@@ -102,7 +102,7 @@
 								<?php $customer_id = Session::get('customer_id');?>
 								
 								<?php if($customer_id != NULL) {?>
-										<li><a href=""><i class="fa fa-lock"></i> Logout</a></li>
+										<li><a href="{{URL::to('/customer_logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
 								<?php } else{?>
 								   		 <li><a href="{{URL::to('/login-check')}}"><i class="fa fa-lock"></i> Login</a></li>
 								<?php } ?>

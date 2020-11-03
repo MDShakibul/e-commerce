@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+Session_start();
 use Illuminate\Support\Facades\Redirect;
+
 
 class CheckoutController extends Controller
 {
@@ -76,5 +78,17 @@ class CheckoutController extends Controller
         
         echo"</pre>"; */
     }
+      
+    public function customer_logout(Request $request){
+        Session::flush();
+        return Redirect::to('/');
+
+    } 
+
+    public function payment(){
+        
+    }
+
+
 
 }
