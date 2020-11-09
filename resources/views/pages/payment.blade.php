@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <section id="cart_items">
 		<div class="container col-sm-12">
 			<div class="breadcrumbs">
@@ -11,10 +12,7 @@
 			<div class="table-responsive cart_info">
 			<?php
 			 $contents = Cart::getContent();
-			 /* echo"<pre>";
-			 print_r($contents);
-			 echo"</pre>";
-			 exit(); */
+			 
 			?>
 				<table class="table table-condensed">
 					<thead>
@@ -46,8 +44,8 @@
 								@csrf
 									<input class="cart_quantity_input" type="text" name="quantity" value="{{$v_contents->quantity}}" autocomplete="off" size="2">
 									<input  type="hidden" name="id" value="{{$v_contents->id}}" >
-									<input type="submit" name="submit" value="Update" class="btn btn-sm btn-default">
-								</form>
+<!-- 									<input type="submit" name="submit" value="Update" class="btn btn-sm btn-default">
+ -->								</form>
 								</div>
 							</td>
 							<td class="cart_total">
@@ -72,52 +70,37 @@
 			</div>
 		</div>
 	</section> <!--/#cart_items-->
-
-	<section id="do_action">
-		<div class="container">
-			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-			</div>
-			<div class="row">
-
-				<div class="col-sm-8">
-					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>{{Cart::getSubTotal()}}</span></li>
-							<li>Eco Tax <span></span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>{{Cart::getTotal()}}</span></li>
-						</ul>
-							<a class="btn btn-default update" href="{{URL::to('/')}}">Update</a>
-							<!-- <?php $customer_id = Session::get('customer_id');?>
-
-							<?php if($customer_id != NULL) {?>
-									<li><a class="btn btn-default check_out" href="{{URL::to('/checkout')}}"></i> Checkout</a></li>
-
-								<?php } else{?>
-								<li><a class="btn btn-default check_out" href="{{URL::to('/login-check')}}"></i> Checkout</a></li>
-									
-								<?php } ?> -->
-
-								<?php $customer_id = Session::get('customer_id');
-									  $shipping_id = Session::get('shipping_id');
-								
-								?>
-								<?php if($customer_id != NULL && $shipping_id==NULL) {?>
-									<li><a class="btn btn-default check_out" href="{{URL::to('/checkout')}}"></i> Checkout</a></li>
-
-								<?php } if($customer_id != NULL && $shipping_id !==NULL){?>
-								     <li><a class="btn btn-default check_out" href="{{URL::to('/payment')}}"></i> Checkout</a></li>
-								<?php } else{?>
-									<li><a class="btn btn-default check_out" href="{{URL::to('/login-check')}}"></i> Checkout</a></li>
-
-								<?php } ?>
-							
-					</div>
-				</div>
-			</div>
+<section id="do_action">
+	<div class="container">
+		<div class="heading">
+			<h3>What would you like to do next?</h3>
+			<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
 		</div>
-	</section><!--/#do_action-->
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active">Payment method</li>
+			</ol>
+		</div>
+		<div class="paymentCont col-sm-6">
+					<div class="headingWrap">
+							<h3 class="headingTop text-center">Select Your Payment Method</h3>	
+<!-- 							<p class="text-center">Created with bootsrap button and using radio button</p>
+ -->					</div>
+				
+
+					<form action="{{url('/order-place')}}" method="post">
+					@csrf
+					<input type="radio" name="payment_method" value="handcash"> Hand Cash<br>
+					<input type="radio" name="payment_method" value="cart"> Debit Cart<br>
+					<input type="radio" name="payment_method" value="bkash"> B-kash<br>
+					<input type="submit" name="" value="Done">
+					</form>
+					<!-- <div class="footerNavWrap clearfix">
+						<div class="btn btn-success pull-left btn-fyi"><span class="glyphicon glyphicon-chevron-left"></span> Done</div>
+					</div> -->
+				</div>
+	</div>
+</section><!--/#do_action-->
 
 @endsection
