@@ -25,7 +25,7 @@
 								
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>{{$v_published_product->manufacture_name}}</a></li>
+										<li></i>{{$v_published_product->manufacture_name}}</a></li>
 										<li><a href="{{URL::to('/view_product/'. $v_published_product->product_id)}}"><i class="fa fa-plus-square"></i>View Product</a></li>
 									</ul>
 								</div>

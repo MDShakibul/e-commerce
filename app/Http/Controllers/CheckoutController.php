@@ -138,11 +138,14 @@ class CheckoutController extends Controller
             DB::table('tbl_order_details')->insert($oddata);
         }
         if($payment_getway=='handcash'){
-           echo"Successfully done by Hand cash"; 
+            Cart::clear();
+            return view('pages.handcash');
         }elseif($payment_getway=='cart'){
-            echo"Successfully done by Debit Cart"; 
+            Cart::clear();
+            return view('pages.handcash');
          }elseif($payment_getway=='bkash'){
-            echo"Successfully done by B-kahs"; 
+            Cart::clear();
+            return view('pages.handcash');; 
          }else{
             echo"Not Selected";
          }

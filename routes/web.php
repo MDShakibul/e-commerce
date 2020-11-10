@@ -26,6 +26,15 @@ Route::post('/customer_login','CheckoutController@customer_login');
 Route::get('/customer_logout','CheckoutController@customer_logout');
 Route::post('/order-place','CheckoutController@order_place');
 
+//manage order
+Route::get('/manage-order','ManageOrderController@manage_order');
+Route::get('/view-order/{order_id}','ManageOrderController@view_order');
+Route::get('/delete-order/{order_id}','ManageOrderController@delete_order');
+Route::get('/unactive_order/{ordery_id}', 'ManageOrderController@unactive_order');
+Route::get('/active_order/{order_id}', 'ManageOrderController@active_order');
+
+
+
 
 
 
